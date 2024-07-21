@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>カウントアップ</title>
+    <title>Count Up</title>
 </head>
-<body>
-    <div style="text-align: center; font-size: 2em; margin-top: 20%;">
-        <div id="counter">0</div>
-        <br>
-        <button onclick="start()">スタート</button>
-        <button onclick="stop()">ストップ</button>
-        <button onclick="reset()">リセット</button>
-    </div>
+<body style="background-color: white; text-align: center; font-size: 2em; margin-top: 20%;">
+    <div id="counter">0</div>
+    <br>
+    <button onclick="start()" style="background-color: white; border: none; color: black;">Start</button>
+    <button onclick="stop()" style="background-color: white; border: none; color: black;">Stop</button>
+    <button onclick="reset()" style="background-color: white; border: none; color: black;">Reset</button>
+
     <div style="position: fixed; bottom: 10px; right: 10px; font-size: 0.8em;">
         Version 1.0
     </div>
