@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>カウントアップ</title>
+</head>
+<body>
+    <div style="text-align: center; font-size: 2em; margin-top: 20%;">
+        <div id="counter">0</div>
+        <br>
+        <button onclick="start()">スタート</button>
+        <button onclick="stop()">ストップ</button>
+        <button onclick="reset()">リセット</button>
+    </div>
+    <div style="position: fixed; bottom: 10px; right: 10px; font-size: 0.8em;">
+        Version 1.0
+    </div>
+
+    <script>
+        let count = 0;
+        let interval;
+
+        function start() {
+            interval = setInterval(() => {
+                count++;
+                document.getElementById('counter').innerText = count;
+            }, 1000);
+        }
+
+        function stop() {
+            clearInterval(interval);
+        }
+
+        function reset() {
+            clearInterval(interval);
+            count = 0;
+            document.getElementById('counter').innerText = count;
+        }
+    </script>
+</body>
+</html>
