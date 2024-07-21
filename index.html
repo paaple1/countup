@@ -5,7 +5,7 @@
     <title>Count Up</title>
 </head>
 <body style="background-color: white; text-align: center; font-size: 2em; margin-top: 20%;">
-    <div id="counter">0</div>
+    <div id="counter">00:00</div>
     <br>
     <button onclick="start()" style="background-color: white; border: none; color: black;">Start</button>
     <button onclick="stop()" style="background-color: white; border: none; color: black;">Stop</button>
@@ -16,14 +16,22 @@
     </div>
 
     <script>
-        let count = 0;
+        let seconds = 0;
+        let minutes = 0;
         let interval;
 
+        function updateCounter() {
+            seconds++;
+            if (seconds == 60) {
+                seconds = 0;
+                minutes++;
+            }
+            document.getElementById('counter').innerText = 
+                String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+        }
+
         function start() {
-            interval = setInterval(() => {
-                count++;
-                document.getElementById('counter').innerText = count;
-            }, 1000);
+            interval = setInterval(updateCounter, 1000);
         }
 
         function stop() {
@@ -32,8 +40,9 @@
 
         function reset() {
             clearInterval(interval);
-            count = 0;
-            document.getElementById('counter').innerText = count;
+            seconds = 0;
+            minutes = 0;
+            document.getElementById('counter').innerText = "00:00";
         }
     </script>
 </body>
